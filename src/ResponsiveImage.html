@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ResponsiveImage</title>
+    <style type="text/css">
+        html,*{
+            margin: 0;
+            padding: 0;
+        }
+        .content{
+            width: 100%;
+            margin: 0 auto;
+        }
+        .content img{
+            display: block;
+/*            width: 100%;
+*/            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+<!-- ===================方法三，使用picture标签实现响应式图片==================== -->
+<!-- 通过使用picture、source、 srcset来自主控制加载何种大小或格式的图片。浏览器会遍历picture中的source属性，选择与当前环境相符的source的srcset匹配到img中 -->
+<!-- webp 谷歌开发出来的一种图片格式，大小是jpg的三分之二。现在只有谷歌浏览器和安卓系统支持 -->
+    <picture>
+        <source media="(max-width:36em)"
+                srcset="img/ad001.png 768w"/>
+        <source srcset="img/ad001-l.png 1800w"/>
+        <source type="image/svg+xml" srcset="logo.svg 480w,logo-m.svg 800w,logo-l.svg 1600w"/>
+        <source type="image/webq" srcset="logo.webq 480w,logo-m.webq 800w,logo-l.webq 1600w"/>
+        <img class="image" src="img/ad001.png">
+    </picture>
+
+
+<!-- ======================方法二，使用srcset实现响应式图片===================== -->
+<!-- 三张图片用','隔开，每张图片：路径，空格，宽度 -->
+        <!-- <img src="img/ad001.png" class="image" srcset="img/ad001.png 480w,img/ad001-m.png 800w,img/ad001-l.png 1600w"> -->
+    </div>
+
+
+<!-- ======================方法一，使用JS实现响应式图片===================== -->
+    <!--
+    <div class="content">
+        <img src="img/ad001.png">
+    </div>
+    <script src="js/vendor/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+          function makeImageResponsive(){
+            var width = $(window).width();
+            var img = $(".content img");
+            if(width <= 480){
+              img.attr("src","img/ad001.png");
+            }else if(width <=800){
+              img.attr("src","img/ad001-m.png");
+            }else{
+              img.attr("src","img/ad001-l.png");
+            }
+          }
+          $(window).on("resize load",makeImageResponsive);
+        })
+    </script> -->
+</body>
+</html>

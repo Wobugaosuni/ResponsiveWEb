@@ -1,0 +1,763 @@
+/************
+ * 页面样式
+ ************/
+
+ /* =========
+    基本默认值
+
+    ========= */
+html{
+    font-size: 62.5%;
+    color: #222;
+}
+::selection{
+    background-color: #b3d4fc;
+    text-shadow: none;
+}
+ul{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+
+/* =========
+    工具样式
+    ========= */
+.center-block{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+.pull-right{
+    float: right !important;
+}
+.pull-left{
+    float: left !important;
+}
+.text-right{
+    text-align: right !important;
+}
+.text-left{
+    text-align: left !important;
+}
+.text-center{
+    text-align: center !important;
+}
+.hide{
+    display: none !important;
+}
+.show{
+    display: block !important;
+}
+.invisible{
+    visibility: hidden;
+}
+.text-hide{
+    font: 0/0 a;
+    color: transparent;
+    text-shadow: none;
+    background-color: transparent;
+    border: 0;
+}
+.clearfix:after,
+.clearfix:before{
+    content: '';
+    display: block;
+}
+.clearfix:after{
+    clear: both;
+}
+
+/* ===========
+   浏览器更新提示
+   =========== */
+.browserupgrade{
+    margin: 0;
+    padding: 10px;
+    background: #ccc;
+}
+body{
+    font-size: 1.2rem;
+    line-height: 1.5;
+    background-color: #f7f7f7;
+}
+a{
+    color: #666;
+    text-decoration: none;
+}
+a:hover,a:active{
+    color: #0ae;
+    text-decoration: underline;
+}
+
+/* 网站头部 */
+header{
+    width: 100%;
+}
+header .top{
+/*----------中文版的chrome最小字号下限是12px------------*/
+    line-height: 3rem;
+    padding: 0 15px;
+    color: #fff;
+    background: #555;
+    border-bottom: 1px solid #ecc000;
+}
+header .tel{
+    float: left;
+}
+/*-----------不用浮动即可设置右对齐小技巧-------------*/
+header .top ul{
+    text-align: right;
+}
+header .top li{
+   display: inline-block;
+}
+header .top a{
+    display: inline-block;
+    color: #fff;
+    padding: 0 1.5rem;
+}
+header .top li+li{
+    border-left: 1px solid #999;
+/*-------------解决inline-block带来的空隙------------*/
+    margin-left: -3px;
+}
+/*在媒体查询中，相对单位rem和em的基准高于html，所以与在html中设置的rem大小并不一致！单位是相对于浏览器设置的默认值设置的
+这里的rem或em依然是：1rem=1em=16px，所以800/16=50rem。
+另外，rem兼容性不如em，故采用兼容性更好的em为媒体查询的断点单位*/
+
+/* 第一段的样式，第二第三段可以复用 */
+@media only screen and (max-width: 50em){
+    header .top a{
+        padding: 0 1rem;
+    }
+}
+@media only screen and (min-width: 30.0625em) and (max-width: 50em){
+
+}
+@media only screen and (max-width: 30.0625em){
+    header .tel,
+    header .top li:nth-child(3),
+    header .top li:nth-child(4){
+        display: none;
+    }
+}
+header .main{
+    padding: 0;
+}
+header .main .brand {
+    float: left;
+    padding: 1rem 1rem 0 1.5rem;
+}
+header .main ul{
+    text-align: right;
+}
+header .main li{
+    display: inline-block;
+    margin-right: -3px;
+    border-left: 1px solid #f0ede9;
+}
+/*--------------注意a样式的应用范围！！！----------------*/
+header .main ul a{
+    display: inline-block;
+    padding: 0 2.5rem;
+    line-height: 5.5rem;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #7c7a65;
+}
+header .main ul li a:hover,
+header .main ul li a:active{
+    color: #ffb300;
+    background-color: #f8f6f1;
+}
+@media only screen and (max-width: 50em){
+    header .main .brand{
+        float: none;
+        display: block;
+        margin: 0 auto;
+        padding: 1.5rem 0 0;
+        text-align: center;
+    }
+    header .main ul{
+        text-align: center;
+    }
+    header .main li{
+        border: none;
+    }
+    header .main ul a{
+        padding: 0 1.5rem 1.5rem;
+        line-height: 3rem;
+    }
+}
+@media only screen and (max-width: 30.0625em){
+    header .main li:first-child{
+        display: none;
+    }
+    header .main ul a{
+        padding: 0 0.5rem 1.5rem;
+    }
+}
+
+/* 网站主要内容 */
+.container{
+    width: 100%;
+}
+/* 交易信息 */
+.transaction{
+    width: 100%;
+    background-color: #7c7365;
+}
+.trans-content{
+    width: 90%;
+    margin: 0 auto;
+    font-size: 1.5rem;
+}
+.trans-data{
+    float: left;
+    padding: 1rem;
+    text-align: left;
+}
+.trans-data span{
+    display: inline-block;
+    line-height: 3rem;
+    color: #fff;
+}
+.trans-data .trans-money{
+    font-size: 2.2rem;
+    color: #ff9900;
+    letter-spacing: 3px;
+    margin: 0 0.5rem;
+    padding: 0 1rem;
+    border-radius: 3px;
+    background-color: rgba(255,255,255,0.5); /*背景颜色透明，内容不透明，使用rgba写法*/
+    box-shadow: 1px 2px 1px #333 inset;
+}
+.trans-report{
+    text-align: right;
+}
+.trans-report a{
+    display: inline-block;
+    color: #fff;
+    padding: 1rem;
+    line-height: 3rem;
+}
+@media only screen and (max-width: 50em){
+    .trans-data{
+        padding: 1rem 0.5rem;
+    }
+    .trans-data span,
+    .trans-report a{
+        font-size: 1.2rem;
+    }
+    .trans-data .trans-money{
+        font-size: 1.6rem;
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+        box-shadow: none;
+        letter-spacing: 0;
+    }
+}
+@media only screen and (min-width: 30.0625em) and (max-width: 50em){
+    .trans-content{
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 30.0625em){
+    .trans-data{
+        float: none;
+        text-align: center;
+        padding: 0;
+    }
+    .trans-report{
+        text-align: center;
+    }
+    .trans-report a{
+        line-height: 1.2rem;
+    }
+}
+
+/* 滚动广告 */
+/*.ad{
+    display: none;
+}*/
+/* 平台特点 */
+.feature{
+    width: 90%;
+    margin: 2rem auto;
+/*--------消掉inline-block带来的影响---------*/
+    font-size: 0;
+}
+.feature .item1{
+    display: inline-block;
+/* ----------CSS3新特性，动态变化-------------*/
+/* 使用很多小数位:让宽度计算更加准确; */
+/*－ 3rem = padding2rem + margin-left3rem/3*/
+/* 或者改为：
+    box-sizing: border-box;怪异模式下的盒模型，减少padding和border带来的影响
+    width: calc(33.3333333333333% - 1rem */
+    width: calc(33.3333333333333% - 1.67rem);
+    padding: 0.5rem;
+    font-size: 1.4rem;
+    background-color: #fff;
+    box-shadow: 0 0 4px #ccc;
+}
+.feature .item1 + .item1{
+    margin-left: 1rem;
+}
+.feature .item1 h3{
+    display: inline-block;
+    width: 40%;
+    margin: 0;
+    padding: 0;
+    font-size: 3.3rem;
+    vertical-align: top;
+    text-align: center;
+    color: #ff9900;
+}
+.feature .item1 p{
+    display: inline-block;
+    width: 55%;
+    margin: 0;
+    padding: 0;
+    color: #999;
+}
+@media only screen and (min-width: 30.0625em) and (max-width: 50em){
+    .feature .item1 h3{
+        display: block;
+        width: 100%;
+        text-align: center;
+        font-size: 2.6rem;
+    }
+     .feature .item1 p{
+        display: block;
+        width: 100%;
+        text-align: center;
+        font-size: 1.2rem;
+     }
+}
+@media only screen and (max-width: 30.0625em){
+    .feature{
+        width: 96%;
+    }
+    .feature .item1{
+        width: auto;
+        display: block;
+        margin: 0 auto;
+    }
+    .feature .item1 + .item1{
+        margin: 1rem 0 0;
+    }
+}
+
+
+/* 最新公告 */
+.notice{
+    width: 90%;
+    margin: 2rem auto;
+    font-size: 1.4rem;
+    line-height: 3rem;
+    background-color: #fff;
+    box-shadow: 0 0 4px #ccc;
+}
+/* ----------CSS3新选择器-------------*/
+.notice a:first-child{
+    float: left;
+    display: inline-block;
+    width: 70%;
+    margin-left: 2rem;
+    text-decoration: none;
+    text-overflow: ellipsis; /* 用省略号代表被修剪得文本 */
+    overflow: hidden; /* 溢出隐藏 */
+    white-space: nowrap; /* 不换行 */
+}
+.notice a:first-child:before{
+    content: "最新公告：\00a0\00a0"; /* 两个空格符 */
+    color: #aaa;
+}
+.notice a span{
+    color: #999;
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+.notice .more{
+    display: block;
+    text-align: right;
+    margin-right: 2rem;
+    color: #ff9900;
+}
+@media only screen and (max-width: 30.0625em){
+    .notice{
+        width: 96%;
+        margin: 1rem auto;
+        font-size: 1.2rem;
+    }
+    .notice a:first-child{
+        margin-left: 1rem;
+    }
+    .notice a:last-child{
+        margin-right: 1rem;
+    }
+    .notice span{
+        display: none;
+    }
+}
+
+/* 产品列表 */
+.product{
+    width: 90%;
+    margin: 2rem auto;
+    font-size: 1.4rem;
+    background-color: #f5f9fa;
+    border-top: 2px solid #ff9900;
+    box-shadow:  0 0 4px #ccc;
+}
+.product h2{
+    float: left;
+    width: 20%;
+    margin-top: 3rem;
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: normal;
+    color: #635c51;
+}
+.product h2 em{
+    display: block;
+    margin-top: 1rem;
+    font-size: 1.6rem;
+}
+.product h2 em:first-child{
+    margin-top: 4rem;
+}
+.product .product-content{
+    float: right;
+    width: 79.5%;
+    border-left: 1px solid #eee;
+    background-color: #fff;
+}
+/*.product .product-content .item{
+    width: 100%;
+}*/
+.item + .item{
+    border-top: 1px solid #eee;
+}
+.item h3{
+    float: left;
+    width: 30%;
+    margin: 1.5rem 0;
+    font-size: 1.4rem;
+    font-weight: normal;
+    text-align: center;
+}
+.item h3 em{
+    margin-right: 0.5rem;
+    font-size: 3.6rem;
+    font-style: normal;
+    color: #8b999d;
+}
+.item .info{
+    float: left;
+    width: 50%;
+    box-sizing:border-box;
+    padding: 1rem;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+    font-size: 1.4rem;
+}
+.item .info p{
+    float: left;
+    display: inline-block;
+    text-align: center;
+    width: 56%;
+}
+.item .info p:last-child{
+    width: 40%;
+}
+.item .info p span{
+    display: block;
+    font-size: 2.4rem;
+    color: #ff9900;
+}
+.item .info p span i{
+    font-size: 1.2rem;
+    font-style: normal;
+    color: #999;
+}
+.item .buy{
+    float: left;
+    box-sizing: border-box;
+    width: calc(20%);
+    padding: 1rem;
+}
+.item .buy a{
+    display: block;
+    width: 90%;
+    margin: 1.5rem auto;
+    max-width: 12rem;
+    line-height: 4rem;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #ff9900;
+    border-radius: 5px;
+}
+.item .buy a:hover,
+.item .buy a:active{
+    background-color: #ffc468;
+}
+/*--------------a元素链接不能执行----------------*/
+.item .buy .disabled{
+    cursor: not-allowed;
+    background-color: #ccc!important;
+}
+@media only screen and (max-width: 50em){
+    .product h2{
+        float: none;
+        width: 100%;
+        margin-top: 2rem;
+        font-size: 2.2rem;
+    }
+    .product h2 em{
+        display: inline;
+        font-size: 1.2rem;
+    }
+    .product h2 em:first-child{
+        margin-top: 0;
+    }
+    .product .product-content{
+        float: none;
+        width: 100%;
+    }
+    .item h3{
+        width: 23%;
+        margin: 1.5rem 0;
+        font-size: 1.2rem;
+    }
+    .item h3 em{
+        margin-right: 0.5rem;
+        font-size: 2.2rem;
+    }
+    .item .info{
+        width: 57%;
+        padding: 1rem;
+        font-size: 1.2rem;
+    }
+    .item .info p span{
+        font-size: 2.2rem;
+    }
+    .item .buy a{
+        margin: 0.5rem auto;
+    }
+}
+@media only screen and (max-width: 30.0625em){
+    .product{
+        width: 96%;
+    }
+    .item .info{
+        border: 0;
+        padding: 0;
+    }
+    .item .buy{
+        float: none;
+        width: 100%;
+        padding: 0 0 1rem;
+        clear: both;
+    }
+    .item .info{
+        width: 77%;
+    }
+    .item h3{
+        font-size: 1.4rem;
+    }
+    .item h3 em{
+        font-size: 2.4rem;
+    }
+    .item .info{
+        font-size: 1.4rem;
+    }
+    .item .info p span{
+        font-size: 2.4rem;
+    }
+}
+
+
+/* 底部导航 */
+.footer{
+    padding: 3rem 0;
+    background-color: #fff;
+    border-top: 2px solid #eee;
+}
+.footer-content{
+    width: 90%;
+    margin:0 auto;
+}
+.footer .brand{
+    float: left;
+    display: block;
+    width: 20%;
+    height: 35px;
+    margin-right: 1rem;
+/* --------------灰色滤镜-------------- */
+    filter:grayscale(100%); /* IE识别 */
+    -webkit-filter:grayscale(100%);
+    background: url(../img/logo@1x.png) no-repeat left;
+    background-size: 150px 35px;
+}
+.footer-content ul{
+    float: left;
+    width: 15%;
+}
+.footer-content ul li{
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+}
+.footer-content .title{
+    font-size: 1.6rem;
+    line-height: 3rem;
+}
+@media only screen and (max-width: 50em){
+    .footer .brand{
+        display: none;
+    }
+    .footer-content ul{
+        width: 20%;
+    }
+    .footer-content ul li{
+        font-size: 1.2rem;
+        line-height: 2rem;
+    }
+    .footer-content .title{
+        font-size: 1.4rem;
+        line-height: 2.5rem;
+    }
+}
+
+/* 底部 */
+footer{
+    width: 100%;
+    padding: 30px 0 50px;
+    background: #ededed;
+}
+footer ul{
+    text-align: center;
+}
+footer li{
+    display: inline-block;
+}
+footer .icon{
+    display: inline-block;
+    text-indent: -999rem; /*隐藏文字*/
+    margin-right: 15px;
+    background: url(../img/jebmKcbrh.png) no-repeat;
+    background-size: 466px 447px;
+    overflow: hidden;
+}
+footer .icon-zfywrz {
+    width: 38px;
+    height: 27px;
+    background-position: -369px -45px;
+}
+
+footer .icon-pcirz {
+    width: 78px;
+    height: 27px;
+    background-position: -110px -96px;
+}
+
+footer .icon-visayz {
+    width: 36px;
+    height: 27px;
+    background-position: -426px -90px;
+}
+
+footer .icon-vsjmfw {
+    width: 63px;
+    height: 27px;
+    margin-right: 13px;
+    background-position: -401px -186px;
+}
+
+footer .icon-wlgs {
+    width: 22px;
+    height: 27px;
+    background-position: -48px -48px;
+}
+
+footer .icon-rzcx {
+    width: 75px;
+    height: 27px;
+    background-position: 0 -320px;
+}
+
+footer .icon-gs {
+    width: 30px;
+    height: 30px;
+    margin-right: 0;
+    background: url(https://os.alipayobjects.com/rmsportal/lybcjqloSPjMAFg.png) no-repeat;
+    background-size: 30px;
+}
+footer p{
+    text-align: center;
+    color: #999;
+}
+
+/* ============
+   打印样式
+   ============ */
+@media print{
+    *,
+    *:before,
+    *:after{
+        background: transparent !important; /*清除背景*/
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited{
+        text-decoration: underline;
+    }
+
+    a[href]:after{
+        content: "(" attr(href) ")";
+    }
+
+    /*
+    * 使用#和js的超链接不打印href
+     */
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after{
+        content: '';
+    }
+
+    pre,
+    blockquote{
+        border: 1px solid #999;
+/*只有opera浏览器有效，避免在元素内部插入分页符——不要在把引文断页。要不在本页，要不下一页*/
+        page-break-inside: avoid;
+    }
+
+    img{
+        max-width: 100% !important;
+    }
+
+    p,
+    h2,
+    h3{
+        orphans: 3; /*当元素内部发生分页时，必须在页面底部保留的最少行数*/
+        widows: 3; /*当元素内部发生分页时，必须在页面顶部保留的最少行数*/
+    }
+
+    h2,
+    h3{
+        page-break-after: avoid;
+    }
+}
+
+
+
+
